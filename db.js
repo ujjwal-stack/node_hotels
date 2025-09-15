@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 //define the mongoose connection url
-const mongoURL = 'mongodb://127.0.0.1:27017/hotels'; // replace 'hotels' with your database name
-
+//const mongoURL = 'mongodb://127.0.0.1:27017/hotels'; // replace 'hotels' with your database name
+const mongoURL = 'mongodb+srv://ujjwalrajput1006:Ujjwal12345@ujjwalcluster.1yldzeg.mongodb.net/?retryWrites=true&w=majority&appName=Ujjwalcluster';
 mongoose.connect(mongoURL, { 
     useNewUrlParser: true,
     useUnifiedTopology: true 
