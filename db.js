@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
-
+require('dotenv').config();
 //define the mongoose connection url
 //const mongoURL = 'mongodb://127.0.0.1:27017/hotels'; // replace 'hotels' with your database name
-const mongoURL = 'mongodb+srv://ujjwalrajput1006:Ujjwal12345@ujjwalcluster.1yldzeg.mongodb.net/?retryWrites=true&w=majority&appName=Ujjwalcluster';
-mongoose.connect(mongoURL, { 
+const mongoURL = process.env.MONGODB_URL;
+
+mongoose.connect(mongoURL, {    
     useNewUrlParser: true,
-    useUnifiedTopology: true 
+    useUnifiedTopology: true,
 });
 
 //get the default connection
@@ -24,5 +25,6 @@ db.on('disconnected', () => {
     console.log('Mongoose disconnected');
 });
 
-module.exports = mongoose;
+module.exports = mongoose; 
+
 //module.exports = mongoose; //export the connection for use in other files

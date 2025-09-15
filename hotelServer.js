@@ -3,12 +3,15 @@ const express = require('express')
 const app = express();
 require('./db'); // Ensure db.js is in the same directory
 // Ensure models/person.js is in the correct path
+require('dotenv').config();
 
 const Customer = require('./models/customer')
 
 const bodyParser = require('body-parser');
-const { default: mongoose } = require('mongoose');
+//const { default: mongoose } = require('mongoose');
 app.use(bodyParser.json());
+
+const PORT= process.env.PORT || 3000
 
 app.get('/', (req, res) => {
   res.send('Welcome to our hotel booking service!');
@@ -56,6 +59,6 @@ const menuRoutes = require('./routes/menuRoutes');
 app.use('/menu', menuRoutes); 
 
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log('Server is running on http://localhost:3000');
 });
